@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Services - Salon Liberty</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .all-services-page { padding: 100px 0; min-height: 60vh; background-color: var(--bg-alt); }
+        .all-services-header { text-align: center; margin-bottom: 60px; }
+        .all-services-header h2 { font-size: 3.5rem; margin-bottom: 15px; }
+        .all-services-header p { color: var(--text-light); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        .services-grid .service-card { background-color: white; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid var(--border-color); }
+        .loading-text { text-align: center; color: var(--text-light); grid-column: 1 / -1; font-size: 1.1rem; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <!--<img src="assets/logo.jpg" alt="Salon Liberty Logo">-->
+                    <div class="logo-text">
+                        <h1>Salon<span>Liberty</span></h1>
+                        <p>HAIR & BEAUTY</p>
+                    </div>
+                </a>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="index.html#about">ABOUT</a></li>
+                    <li><a href="services.html" class="active">SERVICES</a></li>
+                    <li><a href="index.html#contact">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="https://wa.me/94702971584" class="btn btn-dark" target="_blank">BOOK NOW</a>
+                <button class="hamburger" aria-label="Menu">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-link">HOME</a>
+            <a href="index.html#about" class="mobile-link">ABOUT</a>
+            <a href="services.html" class="mobile-link active">SERVICES</a>
+            <a href="index.html#contact" class="mobile-link">CONTACT</a>
+        </nav>
+    </header>
+
+    <section class="all-services-page">
+        <div class="container">
+            <div class="all-services-header">
+                <h2>Our <span>Services</span></h2>
+                <p>Discover our full range of premium hair and beauty services.</p>
+            </div>
+            <div id="services-grid" class="services-grid">
+                <p class="loading-text">Loading services...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/logo.jpg" alt="Salon Liberty Logo">
+                        <div class="logo-text">
+                            <h2>Salon<span>Liberty</span></h2>
+                            <p>HAIR & BEAUTY</p>
+                        </div>
+                    </a>
+                </div>
+                <p class="footer-desc">Precision cuts. Flawless beauty. Premium grooming for everyone.</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/_salon_liberty_" target="_blank"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="https://web.facebook.com/salonlibertylk/" target="_blank"><i class="ph ph-facebook-logo"></i></a>
+                    <a href="https://tiktok.com/@salon.liberty" target="_blank"><i class="ph ph-tiktok-logo"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>QUICK LINKS</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>CONTACT US</h3>
+                <ul>
+                    <li><i class="ph ph-map-pin"></i> 650/A, Kaduwela Road, Thalangama North, Malabe, Sri Lanka, 10115</li>
+                    <li><i class="ph ph-phone"></i> 070 297 1584</li>
+                    <li><i class="ph ph-envelope"></i> salonlibertys@gmail.com</li>
+                    <li><i class="ph ph-clock"></i> Mon - Sun: 9AM - 8PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Salon Liberty. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // REPLACE THIS URL with your published Google Sheet CSV link
+        // To get this link: Go to your Google Sheet -> File -> Share -> Publish to web -> Link -> select "Comma-separated values (.csv)" -> Publish.
+        const SHEET_CSV_URL = 'YOUR_GOOGLE_SHEET_CSV_LINK_HERE';
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const grid = document.getElementById('services-grid');
+
+            if (SHEET_CSV_URL === 'YOUR_GOOGLE_SHEET_CSV_LINK_HERE') {
+                grid.innerHTML = '<p class="loading-text">Please add your Google Sheet CSV link in the code (services.html) to load your services.</p>';
+                return;
+            }
+
+            fetch(SHEET_CSV_URL)
+                .then(response => response.text())
+                .then(csvText => {
+                    // Split the text into lines, handling both \r\n and \n
+                    const lines = csvText.split(/\r?\n/).filter(line => line.trim() !== '');
+                    
+                    // Simple regex to parse CSV taking into account quotes
+                    const parseCSVLine = (line) => {
+                        const regex = /("([^"]|"")*"|[^,]*)(?=\s*,|\s*$)/g;
+                        const matches = [];
+                        let match;
+                        while (match = regex.exec(line)) {
+                            matches.push(match[1] ? match[1].replace(/^"|"$/g, '').replace(/""/g, '"').trim() : '');
+                            if(regex.lastIndex === line.length) break;
+                        }
+                        return matches;
+                    };
+
+                    const rows = lines.map(parseCSVLine);
+                    const data = rows.slice(1); // Skip header row
+
+                    if(data.length === 0) {
+                        grid.innerHTML = '<p class="loading-text">No services found.</p>';
+                        return;
+                    }
+
+                    grid.innerHTML = ''; // clear loading text
+
+                    data.forEach(item => {
+                        // Assuming Column A is Service Name, Column B is Price
+                        const name = item[0] || 'Unknown Service';
+                        const price = item[1] || '';
+                        
+                        const card = document.createElement('div');
+                        card.className = 'service-card';
+                        card.innerHTML = `
+                            <div class="service-info" style="border: none;">
+                                <h3>${name}</h3>
+                                <p class="price" style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--primary-color);">${price}</p>
+                            </div>
+                        `;
+                        grid.appendChild(card);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching sheet data:', error);
+                    grid.innerHTML = '<p class="loading-text">Failed to load services. Check your connection or sheet link.</p>';
+                });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
